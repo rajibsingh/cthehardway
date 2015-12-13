@@ -2,15 +2,10 @@
 #include <ctype.h>
 
 //forward declarations
-int can_print_it(char ch);
-void print_letters(char arg[]);
 
-void print_arguments(int argc, char *argv[]) 
+int can_print_it(char ch)
 {
-	int i = 0;
-	for (i = 0; i < argc; i++) {
-		print_letters(argv[i]);
-	}
+	return isalpha(ch) || isblank(ch);
 }
 
 void print_letters(char arg[]) 
@@ -25,10 +20,16 @@ void print_letters(char arg[])
 	printf("\n");
 }
 
-int can_print_it(char ch)
+
+void print_arguments(int argc, char *argv[]) 
 {
-	return isalpha(ch) || isblank(ch);
+	int i = 0;
+	for (i = 0; i < argc; i++) {
+		print_letters(argv[i]);
+	}
 }
+
+
 
 int main(int argc, char *argv[]) 
 {
